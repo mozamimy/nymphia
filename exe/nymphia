@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'nymphia/cli'
+
+Nymphia::CLI.start(ARGV)

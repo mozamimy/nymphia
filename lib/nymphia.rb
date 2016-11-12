@@ -1,5 +1,7 @@
-require "nymphia/version"
+require 'nymphia/cli'
+require 'nymphia/dsl'
+require 'nymphia/version'
+require 'nymphia/dsl/context'
+require 'nymphia/dsl/context/host'
 
-module Nymphia
-  # Your code goes here...
-end
+module Nymphia; end
