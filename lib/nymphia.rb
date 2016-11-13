@@ -1,3 +1,5 @@
+module Nymphia; end
+
 require 'nymphia/cli'
 require 'nymphia/dsl'
 require 'nymphia/version'
@@ -10,5 +12,3 @@ require 'nymphia/dsl/context/host'
 require 'nymphia/dsl/context/gateway'
 require 'nymphia/dsl/context/proxy'
 require 'nymphia/dsl/context/group'
-
-module Nymphia; end
