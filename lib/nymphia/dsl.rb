@@ -11,9 +11,8 @@ class Nymphia::DSL
     @result = Nymphia::DSL::Context.eval(@dsl_code, @path).result
   end
 
-  def render(output: STDOUT)
+  def render(output)
     ssh_config = ERB.new(File.read(find_template('ssh_config_template.erb')), nil, '-').result(binding)
-
     output.write(ssh_config)
   end
 
