@@ -3,9 +3,17 @@
 #
 
 <%- @result[:hosts].each do |host| -%>
+<%- if host[:metadata][:description] -%>
 # <%= host[:metadata][:description] %>
+<%- end -%>
 Host <%= host[:metadata][:host_name] %>
   <%- host[:contents].each do |k, v| -%>
+  <%- if v.respond_to?(:each) -%>
+  <%- v.each do |w| -%>
+  <%= k %> <%= w %>
+  <%- end -%>
+  <%- else -%>
   <%= k %> <%= v %>
+  <%- end -%>
   <%- end %>
 <%- end %>

@@ -1,15 +1,24 @@
+require 'pathname'
+
 class Nymphia::DSL::Context
+  include Nymphia::DSL::RecursiveMethods
+
   attr_reader :result
 
-  def self.eval(dsl_code)
-    new do
-      eval(dsl_code)
+  def self.eval(dsl_code, path)
+    new(path) do
+      eval(dsl_code, binding, path)
     end
   end
 
-  def initialize(&block)
+  def initialize(path, &block)
+    @path = path
+
     @context = {
       identity_files: {},
+      gateways: {},
+      default_params: {},
+      gateway_usage: {},
     }
 
     @result = {
@@ -27,11 +36,10 @@ class Nymphia::DSL::Context
     @context[:identity_files][name] = path
   end
 
-  def host(name, description, &block)
-    name = name.to_s
-    description = description.to_s
+  def load(load_file_path)
+    absolute_load_file_path = Pathname.new(@path).dirname.join(load_file_path)
+    dsl_code = File.read(absolute_load_file_path)
 
-    new_host = Nymphia::DSL::Context::Host.new(@context, name, description, &block).result
-    @result[:hosts] << new_host
+    instance_eval(dsl_code, absolute_load_file_path.to_s)
   end
 end

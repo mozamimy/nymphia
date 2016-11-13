@@ -16,4 +16,4 @@ host 'queen', 'NAS in my home network' do
   use_identify_file :private
 end
 
-# require_relative 'company.rb'
+load 'company.rb'
