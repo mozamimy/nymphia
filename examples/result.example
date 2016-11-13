@@ -16,4 +16,41 @@ Host queen
   Port 4321
   IdentityFile ~/.ssh/id_rsa.1
 
+# Gateway saerver of my company
+Host company.gateway
+  Hostname gw.example.com
+  User alice
+  Port 19822
+
+Host *.apne.aws.example.com
+  CheckHostIp no
+  StrictHostKeyChecking no
+  User alice
+  Port 9822
+  IdentityFile ~/.ssh/id_rsa.company
+  IdentityFile ~/.ssh/id_rsa.company.gw
+  ProxyCommand ssh company.gateway -q -W %h:%p
+
+Host alice.apne.aws.example.com
+  CheckHostIp no
+  StrictHostKeyChecking no
+  IdentityFile ~/.ssh/id_rsa.company
+  IdentityFile ~/.ssh/id_rsa.company.gw
+  ProxyCommand ssh company.gateway -q -W %h:%p
+  Hostname 10.16.16.16
+  User white_rabbit
+  Port 7777
+
+Host awsproxy.company.apne1
+  Hostname gw.apne1.example.com
+  User alice
+  Port 19822
+  IdentityFile ~/.ssh/id_rsa.company.gw
+  DynamicForward 23921
+  LocalForward localhost:13306 mysql.apne.aws.example.com:3306
+  LocalForward localhost:10389 ldap.apne.aws.example.com:398
+
+Host ghe.company.example.com
+  IdentityFile ~/.ssh/id_rsa.company.in
+
 

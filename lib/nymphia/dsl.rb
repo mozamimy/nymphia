@@ -2,12 +2,13 @@ require 'erb'
 require 'pathname'
 
 class Nymphia::DSL
-  def initialize(dsl_code)
+  def initialize(dsl_code, path)
     @dsl_code = dsl_code
+    @path = path
   end
 
   def compile
-    @result = Nymphia::DSL::Context.eval(@dsl_code).result
+    @result = Nymphia::DSL::Context.eval(@dsl_code, @path).result
   end
 
   def render(output: STDOUT)
