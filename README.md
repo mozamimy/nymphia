@@ -1,5 +1,7 @@
 # Nymphia
 
+[![Build Status](https://travis-ci.org/mozamimy/nymphia.svg?branch=master)](https://travis-ci.org/mozamimy/nymphia)
+
 Nymphia is a DSL to generate a ssh config file more structurally.  
 You can use full Ruby syntax and useful methods provided by Nymphia.
 

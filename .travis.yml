@@ -1,5 +1,10 @@
 sudo: false
 language: ruby
 rvm:
+  - 2.2.4
   - 2.3.1
 before_install: gem install bundler -v 1.13.6
+notifications:
+  on_success: change
+  on_failure: change
+  on_start: false
