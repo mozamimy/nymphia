@@ -5,6 +5,8 @@
 Nymphia is a DSL to generate a ssh config file more structurally.  
 You can use full Ruby syntax and useful methods provided by Nymphia.
 
+There is a Vim syntax ([nymphia.vim](https://github.com/mozamimy/nymphia.vim)) if you want to edit colorfully in Vim.
+
 ## Installation
 
 Just type gem command,
@@ -197,9 +199,9 @@ Method `default_params` defines default parameters of hosts in the group includi
 
 ## Todo
 
-- [ ] vim syntax
+- [x] vim syntax
 - [ ] Test code
-- [ ] CI
+- [x] CI
 
 ## Development
 
