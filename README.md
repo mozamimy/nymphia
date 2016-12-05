@@ -197,6 +197,10 @@ Method `gateway` is almost same to `host`, but it can be used in a group by `use
 
 Method `default_params` defines default parameters of hosts in the group including `default_params`. In this example, `host '*.apne.aws.example.com'` has no parameters, but `Host *.apne.aws.example.com` in result is filled by default parameters. The default parameters can be overide like `host 'alice.apne.aws.example.com'`.
 
+## Vim syntax
+
+https://github.com/mozamimy/nymphia.vim
+
 ## Todo
 
 - [x] vim syntax
