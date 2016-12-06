@@ -23,7 +23,9 @@ class Nymphia::CLI
     dsl.compile
 
     if @output_file_path
-      dsl.render(File.open(@output_file_path, 'w'))
+      File.open(@output_file_path, 'w') do |file|
+        dsl.render(file)
+      end
     else
       dsl.render(STDOUT)
     end
