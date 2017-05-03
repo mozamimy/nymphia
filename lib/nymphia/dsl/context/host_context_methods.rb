@@ -10,7 +10,7 @@ module Nymphia::DSL::Context::HostContextMethods
   end
 
   def method_missing(method, *params)
-    key = method.to_s.camelize
+    key = camelize(method.to_s)
 
     if @default_params && @default_params[key]
       @result[:contents][key] = Array(params[0])
@@ -22,5 +22,11 @@ module Nymphia::DSL::Context::HostContextMethods
     else
       @result[:contents][key] = Array(params[0])
     end
+  end
+
+  private
+
+  def camelize(str)
+    str.split('_').collect(&:capitalize).join
   end
 end
