@@ -1,6 +1,3 @@
-require 'active_support'
-require 'active_support/core_ext'
-
 class Nymphia::DSL::Context::DefaultParams
   include Nymphia::DSL::Context::HostContextMethods
 
