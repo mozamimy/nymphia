@@ -37,6 +37,11 @@ class Nymphia::DSL::Context
   end
 
   def load(load_file_path)
+    warn "#{caller[0]}: #load method is obsolated. Use #include_file"
+    include_file(load_file_path)
+  end
+
+  def include_file(load_file_path)
     absolute_load_file_path = Pathname.new(@path).dirname.join(load_file_path)
     dsl_code = File.read(absolute_load_file_path)
 

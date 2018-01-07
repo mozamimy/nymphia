@@ -16,4 +16,4 @@ host('queen', 'NAS in my home network') {
   use_identify_file :private
 }
 
-load 'company.rb'
+include_file 'company.rb'
