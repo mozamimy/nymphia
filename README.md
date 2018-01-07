@@ -65,7 +65,9 @@ Method `host` generate `Host` directive. First argument is name of host, Second 
 
 ### Splitting files
 
-You can use `load` method to load other Nymphia file like following example. Absolute path and relative path are acceptable as the file path.
+You can use `include_file` method to include other Nymphia file like following example. Absolute path and relative path are acceptable as the file path.
+
+We could use `load` in previous version, but `load` is obsoleted now.
 
 ```ruby
 identity_file :private, '~/.ssh/id_rsa.1'
@@ -77,7 +79,7 @@ host('alice', 'my server on VPS') {
   use_identify_file :private
 }
 
-load 'other_nymphia_file.rb'
+include_file 'other_nymphia_file.rb'
 ```
 
 ### Proxy method

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Nymphia::DSL do
-
   describe '#run' do
     context 'when -f is given' do
       subject(:cli) { Nymphia::CLI.new(['-f', 'examples/base.rb']) }
