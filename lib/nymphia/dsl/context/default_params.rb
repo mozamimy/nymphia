@@ -1,14 +1,20 @@
-class Nymphia::DSL::Context::DefaultParams
-  include Nymphia::DSL::Context::HostContextMethods
+module Nymphia
+  class DSL
+    class Context
+      class DefaultParams
+        include HostContextMethods
 
-  attr_reader :result
+        attr_reader :result
 
-  def initialize(context, &block)
-    @context = context
-    @result = {
-      contents: {},
-    }
+        def initialize(context, &block)
+          @context = context
+          @result = {
+            contents: {},
+          }
 
-    instance_eval(&block)
+          instance_eval(&block)
+        end
+      end
+    end
   end
 end
