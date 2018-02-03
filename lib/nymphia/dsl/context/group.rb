@@ -1,15 +1,21 @@
-class Nymphia::DSL::Context::Group
-  include Nymphia::DSL::RecursiveMethods
+module Nymphia
+  class DSL
+    class Context
+      class Group
+        include RecursiveMethods
 
-  attr_reader :result
+        attr_reader :result
 
-  def initialize(context, name, &block)
-    @group_name = name
-    @context = context
-    @result = {
-      hosts: [],
-    }
+        def initialize(context, name, &block)
+          @group_name = name
+          @context = context
+          @result = {
+            hosts: [],
+          }
 
-    instance_eval(&block)
+          instance_eval(&block)
+        end
+      end
+    end
   end
 end
